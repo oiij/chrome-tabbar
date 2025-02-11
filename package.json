@@ -26,11 +26,14 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "LICENSE",
+    "README.md",
+    "dist",
+    "package.json"
   ],
   "scripts": {
     "dev": "vite build --watch",
-    "build": "tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "docs:dev": "vitepress dev .docs",
     "docs:build": "vitepress build .docs",
     "docs:preview": "vitepress preview .docs",
@@ -43,7 +46,7 @@
     "start": "esno src/index.ts",
     "test": "vitest",
     "update:deps": "taze -w && pnpm i",
-    "type:check": "tsc --noEmit",
+    "type:check": "vue-tsc --noEmit",
     "cz": "czg",
     "commit": "git pull && git add -A && pnpm cz && git push",
     "link": "pnpm link --global",
@@ -78,7 +81,8 @@
     "vite": "^6.1.0",
     "vite-plugin-dts": "^4.5.0",
     "vitepress": "^1.6.3",
-    "vitest": "^3.0.5"
+    "vitest": "^3.0.5",
+    "vue-tsc": "^2.2.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm type:check"

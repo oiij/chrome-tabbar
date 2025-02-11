@@ -1,22 +1,16 @@
-# @oiij/chrome-tabs
+# Usage
 
-Features:
-
-- Bundle with [tsup](https://github.com/egoist/tsup)
-- Test with [vitest](https://vitest.dev)
-
-## Usage
-
-```bash
-pnpm add @oiij/chrome-tabs
-```
+<script setup>
+  import Demo from './components/demo.vue'
+</script>
+<Demo />
 
 ```vue
 <script setup lang='ts'>
-import type { TabsOptions } from '@oiij/chrome-tabs'
-import { CTabItem, CTabs } from '@oiij/chrome-tabs'
+import type { TabsOptions } from '../../src/index'
 import { reactive, ref } from 'vue'
-import '@oiij/chrome-tabs/style.css'
+import { CTabItem, CTabs } from '../../src/index'
+
 const value = ref('tab1')
 const options: TabsOptions[] = reactive([
   {
@@ -52,7 +46,3 @@ function onClose(v: string) {
   </CTabs>
 </template>
 ```
-
-## License
-
-MIT

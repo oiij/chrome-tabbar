@@ -1,26 +1,26 @@
 {
-  "name": "typescript-starter",
+  "name": "@oiij/chrome-tabs",
   "type": "module",
-  "version": "0.1.0-beta.0",
+  "version": "0.0.1",
   "description": "",
   "author": "oiij",
   "license": "MIT",
-  "homepage": "https://github.com/oiij/typescript-starter",
+  "homepage": "https://github.com/oiij/chrome-tabs",
   "repository": {
     "type": "git",
-    "url": "git@github.com:oiij/typescript-starter.git"
+    "url": "git@github.com:oiij/chrome-tabs.git"
   },
-  "bugs": "https://github.com/oiij/typescript-starter/issues",
+  "bugs": "https://github.com/oiij/chrome-tabs/issues",
   "keywords": [
-    "typescript-starter"
+    "chrome-tabs"
   ],
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/index.css"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -29,10 +29,11 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsup --watch",
-    "dev:unbuild": "unbuild --stub",
-    "build": "tsc --noEmit && tsup",
-    "build:unbuild": "tsc --noEmit && unbuild",
+    "dev": "vite build --watch",
+    "build": "tsc --noEmit && vite build",
+    "docs:dev": "vitepress dev .docs",
+    "docs:build": "vitepress build .docs",
+    "docs:preview": "vitepress preview .docs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "pnpm build",
@@ -46,13 +47,19 @@
     "cz": "czg",
     "commit": "git pull && git add -A && pnpm cz && git push",
     "link": "pnpm link --global",
-    "preinstall": "npx only-allow pnpm",
-    "postinstall": "npx simple-git-hooks"
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@oiij/use": "^0.0.1",
+    "colord": "^2.9.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.1.1",
+    "@iconify-json/line-md": "^1.2.5",
+    "@iconify-json/ri": "^1.2.5",
     "@oiij/tsconfig": "^0.0.1",
     "@types/node": "^22.13.1",
+    "@vitejs/plugin-vue": "^5.2.1",
     "@vitest/ui": "^3.0.5",
     "bumpp": "^10.0.2",
     "commitlint": "^19.7.1",
@@ -67,6 +74,10 @@
     "tsup": "8.3.6",
     "typescript": "^5.7.3",
     "unbuild": "^3.3.1",
+    "unocss": "^65.4.3",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0",
+    "vitepress": "^1.6.3",
     "vitest": "^3.0.5"
   },
   "simple-git-hooks": {
